@@ -5,7 +5,6 @@ import Sidebar from "../components/global/Sidebar";
 export const SidebarLayout = (props) => {
   const { open, onClose } = props;
   const lgUp = useMediaQuery((theme) => theme?.breakpoints?.up("md"));
-  const sidebarLinks = Auth_Data?.sidebarLinks || [];
 
   const content = <Sidebar />;
   if (lgUp) {

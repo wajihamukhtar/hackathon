@@ -21,10 +21,10 @@ const LayoutBodyRoot = styled("div")(({ theme }) => ({
   overflowX: "hidden",
   margin: "auto",
   [theme.breakpoints.up("md")]: {
-    paddingLeft: 270,
+    paddingLeft: 300,
   },
   [theme.breakpoints.up("lg")]: {
-    paddingLeft: 280,
+    paddingLeft: 300,
   },
   [theme.breakpoints.up("xl")]: {
     paddingLeft: 350,

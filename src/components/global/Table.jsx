@@ -56,10 +56,10 @@ function Table({ columns, rows, heading, SubmitButton }) {
             </Box>
             <DataGrid
                 rows={rows}
-                columns={pathname?.includes('/syllabus/syllabus-list') ? updatedColumns : columns}
+                columns={pathname?.includes('/') ? updatedColumns : columns}
                 initialState={{
                     pagination: {
-                        paginationModel: { page: 0, pageSize: 10 },
+                    aginationModel: { page: 0, pageSize: 10 },
                     },
                 }}
                 pageSizeOptions={[5, 10]}

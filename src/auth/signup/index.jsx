@@ -4,11 +4,11 @@ import InputField from "../../components/global/InputField";
 import SubmitButton from "../../components/global/SubmitButton";
 import { Link, useNavigate } from "react-router-dom";
 import { Auth_Data } from "../../constants/constant";
-import { signUp } from "../firebaseMethods";
+import { user } from "../../api/endPoints";
+import { POST } from "../axiosMethod";
 
 const Signup = () => {
   const { text, button_text, fields, link } = Auth_Data?.signup || {};
-  const navigate = useNavigate();
   const [disbled, setDisabled] = useState(true);
   const [userData, setUserData] = useState({
     first_name: "",
@@ -38,17 +38,7 @@ const Signup = () => {
   }, [userData]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(userData.email.trim(), userData.password.trim())
-      .then((user) => {
-        if (user) {
-          navigate("/");
-        } else {
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        console.error("Error create user:", error.message);
-      });
+    POST(user, userData);
     setUserData({
       first_name: "",
       last_name: "",

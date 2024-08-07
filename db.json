@@ -1,0 +1,44 @@
+{
+  "auth": [],
+  "users": [
+    {
+      "id": "7c69",
+      "first_name": "wajiha",
+      "last_name": "mukhtar",
+      "email": "wajiha@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "cardData": [
+    {
+      "icon": "BusinessIcon",
+      "heading": "Business School",
+      "para": "Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi."
+    },
+    {
+      "icon": "BusinessIcon",
+      "heading": "Business School",
+      "para": "Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi."
+    },
+    {
+      "icon": "BusinessIcon",
+      "heading": "Business School",
+      "para": "Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi."
+    },
+    {
+      "icon": "BusinessIcon",
+      "heading": "Business School",
+      "para": "Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi."
+    },
+    {
+      "icon": "BusinessIcon",
+      "heading": "Business School",
+      "para": "Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi."
+    },
+    {
+      "icon": "BusinessIcon",
+      "heading": "Business School",
+      "para": "Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi."
+    }
+  ]
+}

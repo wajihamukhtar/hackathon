@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
+import CardSection from "../cardsection/CardSection";
 
 const Page = () => {
   const theme = useTheme();
@@ -8,12 +9,9 @@ const Page = () => {
       sx={{
         width: "100%",
         height: "100%",
-        display: "flex",
       }}
     >
-      <Typography variant="h6" color={theme?.palette?.links_color?.dark}>
-        page 1
-      </Typography>
+       <CardSection/>
     </Box>
   );
 };

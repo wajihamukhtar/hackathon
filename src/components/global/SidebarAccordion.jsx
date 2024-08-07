@@ -30,46 +30,63 @@ const SidebarAccordion = ({ sidebarLinks }) => {
                 boxShadow: "none !important",
                 overflow: "auto",
                 width: "100%",
-                border: 0,
                 ".mui-vf72v2-MuiPaper-root-MuiAccordion-root.Mui-expanded": {
                   boxShadow: "none !important",
                   border: 0,
                 },
-                // "&:hover": {
-                //   //   backgroundColor: "#F0F0F0",
-                // },
               }}
             >
-              <AccordionSummary
-                expandIcon={item?.sublinks == null ? null : <ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id={`panel${index + 1}a-header`}
-                sx={{
-                  mx: "auto",
-                  p: 1.4,
-                  mb: 0,
-                  minHeight: "55px",
-                  gap: 2,
-                  width: "95%",
-                  height: "43px",
-                  borderRadius: "2px",
-                  backgroundColor: `${item?.link == pathname ? "red" : null}`,
-                }}
-              >
-                <Link to={`${item?.link}`}>
-                  {item?.icon && (
-                    <Box
-                      sx={{
-                        color: `${theme?.palette?.links_color?.light}`,
-                        paddingTop: "2px",
-                      }}
-                    >
-                      {item?.icon}
-                    </Box>
-                  )}
-                </Link>
-                <Link to={`${item?.link}`} style={{ textDecoration: "none" }}>
-                  {item?.sublinks ? (
+              <Link to={`${item?.link}`} style={{ textDecoration: "none" }}>
+                <AccordionSummary
+                  expandIcon={
+                    item?.sublinks == null ? null : (
+                      <ExpandMoreIcon
+                        sx={{
+                          color: "blue",
+                        }}
+                      />
+                    )
+                  }
+                  aria-controls="panel1a-content"
+                  id={`panel${index + 1}a-header`}
+                  sx={{
+                    mx: "auto",
+                    p: 1.4,
+                    mb: 0,
+                    minHeight: "55px",
+                    gap: 2,
+                    width: "95%",
+                    height: "43px",
+                    borderRadius: "10px",
+                    "&:hover": {
+                      color: item?.sublinks ? "blue" : "#fff !important",
+                      backgroundColor: item?.sublinks ? "transparent" : "blue", // Add or adjust as needed
+                    },
+                  }}
+                >
+                  <Box
+                    component={"div"}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      // color: "#fff !important",
+                      // "&:hover": {
+                      //   color: "red !important",
+                      // },
+                    }}
+                  >
+                    {/* <Link to={`${item?.link}`}> */}
+                    {item?.icon && (
+                      <Box
+                        sx={{
+                          paddingTop: "2px",
+                        }}
+                      >
+                        {item?.icon}
+                      </Box>
+                    )}
+                    {/* </Link> */}
+                    {/* <Link to={`${item?.link}`} style={{ textDecoration: "none" }}> */}
                     <Typography
                       variant="body1"
                       sx={{
@@ -78,71 +95,60 @@ const SidebarAccordion = ({ sidebarLinks }) => {
                         fontWeight: `${item?.link == pathname ? 600 : 400}`,
                         ml: 2,
                         mt: 0.5,
-                        color: `${theme?.palette?.links_color?.light}`,
                       }}
                     >
                       {item?.text}
                     </Typography>
-                  ) : (
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        width: "100%",
-                        height: "100%",
+                    {/* </Link> */}
+                  </Box>
+                </AccordionSummary>
+              </Link>
 
-                        fontWeight: `${item?.link == pathname ? 600 : 400}`,
-                        ml: 2,
-                        mt: 0.5,
-                        color: `${theme?.palette?.links_color?.light}`,
-                      }}
-                    >
-                      {item?.text}
-                    </Typography>
-                  )}
-                </Link>
-              </AccordionSummary>
               {item?.sublinks &&
                 item?.sublinks?.map((eachItem, index) => (
                   <div key={index}>
-                    <AccordionDetails
-                      key={index}
-                      sx={{
-                        pl: 6.5,
-                        pt: 1.5,
-                        pb: 1.5,
-                        mb: 0.7,
-                        boxShadow: "none !important",
-                        alignItems: "center",
-                        "&:hover": {
-                          backgroundColor: `${theme?.palette?.links_color?.light}`,
-                        },
-                        backgroundColor: `${
-                          eachItem?.link == pathname
-                            ? `${theme?.palette?.background?.dark}`
-                            : null
-                        }`,
+                    <Link
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        textDecoration: "none",
                       }}
+                      to={`${eachItem?.link}`}
                     >
-                      <Link
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          textDecoration: "none",
+                      <AccordionDetails
+                        key={index}
+                        sx={{
+                          pl: 5.3,
+                          pt: 1.5,
+                          pb: 1.5,
+                          mb: 0.7,
+                          mx: 2,
+                          boxShadow: "none !important",
+                          alignItems: "center",
+                          borderRadius: "10px",
+                          "&:hover": {
+                            color: "#fff !important",
+                            backgroundColor: "blue", // Add or adjust as needed
+                          },
+                          // backgroundColor: `${
+                          //   eachItem?.link == pathname
+                          //     ? `${theme?.palette?.background?.dark}`
+                          //     : null
+                          // }`,
                         }}
-                        to={`${eachItem?.link}`}
                       >
                         <Typography
                           variant="body1"
                           sx={{
                             width: "100%",
                             height: "100%",
-                            color: `${theme?.palette?.links_color?.dark}`,
+                            // color: `${theme?.palette?.links_color?.dark}`,
                           }}
                         >
                           {eachItem?.text}
                         </Typography>
-                      </Link>
-                    </AccordionDetails>
+                      </AccordionDetails>
+                    </Link>
                   </div>
                 ))}
             </Accordion>

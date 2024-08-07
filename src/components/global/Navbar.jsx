@@ -1,9 +1,34 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Box, IconButton, useTheme } from "@mui/material";
+import {
+  Avatar,
+  Badge,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Tooltip,
+  useTheme,
+} from "@mui/material";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useNavigate } from "react-router-dom";
+const settings = ["Logout"];
 
 const Navbar = ({ open }) => {
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+  const handleLogout = () => {
+      navigate("/");
+      localStorage.removeItem("token");
+  };
   const theme = useTheme();
   return (
     <>
@@ -19,7 +44,6 @@ const Navbar = ({ open }) => {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          {/* <IconButton disableRipple> */}
           <MenuOpenIcon
             onClick={open}
             sx={{
@@ -32,7 +56,6 @@ const Navbar = ({ open }) => {
               },
             }}
           />
-          {/* </IconButton> */}
           <Typography
             variant="h5"
             color={theme?.palette?.background?.black}
@@ -41,10 +64,43 @@ const Navbar = ({ open }) => {
             Dashboard
           </Typography>
         </Box>
-        <Box sx={{}}>
-          <Typography variant="h6" color={theme?.palette?.links_color?.light}>
-            search
-          </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit"
+          >
+            <Badge badgeContent={1} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt={"Avatart"} src="tu" />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: "45px" }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={handleLogout}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
         </Box>
       </Box>
     </>

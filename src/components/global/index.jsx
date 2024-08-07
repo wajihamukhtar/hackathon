@@ -6,8 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Auth_Data } from '../../constants/auth_constant';
 import theme from '../../theme';
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from '../firebaseConfig';
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import { app } from '../firebaseConfig';
 
 const RegistrationForm = () => {
   const { text, checkbox_text, reset_link, button_text, fields, link } =
@@ -34,28 +34,27 @@ const RegistrationForm = () => {
       remember_me: event.target.checked,
     });
   };
-  const auth = getAuth(app)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setUserData({ email: '', password: '' });
     setRememberMe(false);
-    signInWithEmailAndPassword(auth, userData.email, userData.password)
-      .then((res) => {
-        const user = res.user;
-        if (user) {
-          localStorage.setItem('token', JSON.stringify(user));
-          navigate('/Students')
-        }
-        else {
-          navigate('/')
-        }
-        console.log('User login account:', user);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.error('Error login user:', errorMessage);
-      });
+    // signInWithEmailAndPassword(auth, userData.email, userData.password)
+    //   .then((res) => {
+    //     const user = res.user;
+    //     if (user) {
+    //       localStorage.setItem('token', JSON.stringify(user));
+    //       navigate('/Students')
+    //     }
+    //     else {
+    //       navigate('/')
+    //     }
+    //     console.log('User login account:', user);
+    //   })
+    //   .catch((error) => {
+    //     const errorMessage = error.message;
+    //     console.error('Error login user:', errorMessage);
+    //   });
   };
   return (
     <>

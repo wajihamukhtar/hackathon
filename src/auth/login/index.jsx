@@ -1,26 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
 import InputField from "../../components/global/InputField";
 import SubmitButton from "../../components/global/SubmitButton";
 import { Link, useNavigate } from "react-router-dom";
 import { Auth_Data } from "../../constants/constant";
 import theme from "../../theme";
-import { signIn } from "../firebaseMethods";
-import { useDispatch, useSelector } from "react-redux";
-import { update } from "../../redux/reducers/userSlice";
+import { GET } from "../axiosMethod";
+
 const Login = () => {
   const { text, checkbox_text, button_text, fields, link } =
     Auth_Data?.login || {};
+  const [auth,setAuth] =useState([]) 
+  const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
     password: "",
     remember_me: "",
   });
-
-  const dispatch = useDispatch();
-
-  const [rememberMe, setRememberMe] = useState(false);
-  const navigate = useNavigate();
+// useEffect(()=>{
+//   GET(user).then((res)=>{
+// console.log(res)
+//   }).catch((err)=>{
+//     console.log(err)
+//   })
+// },[])
 
   const handleInputChange = (e) => {
     setUserData({
@@ -36,24 +40,9 @@ const Login = () => {
     });
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setRememberMe(false);
-    dispatch(update(userData));
-    signIn(userData.email, userData.password)
-      .then((user) => {
-        if (user) {
-          localStorage.setItem("token", JSON.stringify(user));
-          navigate("/students/student-list");
-        } else {
-          navigate("/");
-          setUserData({ email: "", password: "" });
-        }
-      })
-      .catch((error) => {
-        console.error("Error login user:", error.message);
-      });
+    
   };
-  console.log(update);
+  
   return (
     <>
       <Box

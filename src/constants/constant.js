@@ -1,12 +1,6 @@
 import PersonIcon from "@mui/icons-material/Person";
-import SchoolIcon from "@mui/icons-material/School";
-import CastForEducationIcon from "@mui/icons-material/CastForEducation";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import ClassIcon from "@mui/icons-material/Class";
-import SubjectIcon from "@mui/icons-material/Subject";
-import PaymentIcon from "@mui/icons-material/Payment";
-import Person3Icon from "@mui/icons-material/Person3";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
+import BusinessIcon from '@mui/icons-material/Business';
+
 export const Auth_Data = {
   login: {
     text: "LOGIN",
@@ -413,7 +407,7 @@ export const Auth_Data = {
       ],
     },
     {
-      icon: <Person3Icon />,
+      icon: <PersonIcon />,
       text: "Teachers",
       link: "#",
       sublinks: [
@@ -431,115 +425,41 @@ export const Auth_Data = {
         // },
       ],
     },
-    {
-      icon: <SubjectIcon />,
-      text: "Subjects",
-      link: "#",
-      sublinks: [
-        {
-          text: "Subjects Add",
-          link: "/subjects/subject-add",
-        },
-        {
-          text: "Subject List",
-          link: "/subjects/subjects-list",
-        },
-      ],
-    },
-    {
-      icon: <AutoStoriesIcon />,
-      text: "Syllabus",
-      link: "#",
-      sublinks: [
-        {
-          text: "Syllabus Form",
-          link: "/syllabus/syllabus_form",
-        },
-        {
-          text: "Syllabus List",
-          link: "/syllabus/syllabus-list",
-        },
-      ],
-    },
-    {
-      icon: <SchoolIcon />,
-      text: "School",
-      link: "#",
-      sublinks: [
-        {
-          text: "Student Registration",
-          link: "/students/student-add",
-        },
-        {
-          text: "Teacher Registration",
-          link: "/teachers/teacher-add",
-        },
-      ],
-    },
-    {
-      icon: <ClassIcon />,
-      text: "Class",
-      link: "#",
-      sublinks: [
-        {
-          text: "Class Form",
-          link: "/class/class-form",
-        },
-        {
-          text: "Class List",
-          link: "/class/class-list",
-        },
-      ],
-    },
-    {
-      icon: <PaymentIcon />,
-      text: "Fees",
-      link: "#",
-      sublinks: [
-        {
-          text: "Fee Structure",
-          link: "/fees/fee-structure",
-        },
-
-        {
-          text: "Fee Voucher",
-          link: "/fees/fee-voucher",
-        },
-        {
-          text: "Fee Submission",
-          link: "/fees/fee-submission",
-        },
-      ],
-    },
-    {
-      icon: <CastForEducationIcon />,
-      text: "Admission",
-      link: "#",
-      sublinks: [
-        {
-          text: "Admission Form",
-          link: "/admission/admission",
-        },
-      ],
-    },
-    {
-      icon: <MenuBookIcon />,
-      text: "Exam",
-      link: "#",
-      sublinks: [
-        {
-          text: "Exam Schedule",
-          link: "/exam/exam-schedule",
-        },
-        {
-          text: "Exam Result",
-          link: "/exam/exam-result",
-        },
-      ],
-    },
   ],
+  // cardData : [
+  //   {
+  //     icon: <BusinessIcon sx={{ fontSize: "40px" }} />,
+  //     heading: 'Business School',
+  //     para: 'Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi.',
+  //   },
+  //   {
+  //     icon: <BusinessIcon sx={{ fontSize: "40px" }} />,
+  //     heading: 'Business School',
+  //     para: 'Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi.',
+  //   },
+  //   {
+  //     icon: <BusinessIcon sx={{ fontSize: "40px" }} />,
+  //     heading: 'Business School',
+  //     para: 'Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi.',
+  //   },
+  //   {
+  //     icon: <BusinessIcon sx={{ fontSize: "40px" }} />,
+  //     heading: 'Business School',
+  //     para: 'Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi.',
+  //   },
+  //   {
+  //     icon: <BusinessIcon sx={{ fontSize: "40px" }} />,
+  //     heading: 'Business School',
+  //     para: 'Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi.',
+  //   },
+  //   {
+  //     icon: <BusinessIcon sx={{ fontSize: "40px" }} />,
+  //     heading: 'Business School',
+  //     para: 'Cras vitae turpis lacinia, lacinia la cus non, fermentum nisi.',
+  //   },
+  // ]
+  
 };
-
 export const sidebarLinks = [
   {
     icon: <PersonIcon />,
